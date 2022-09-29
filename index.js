@@ -41,10 +41,12 @@ app.post('/delete', CommentController.deleteFile);
 //Создание комментария
 app.post('/comments', CommentController.createComment);
 //Получение всех комментариев
-app.get('/comments', CommentController.getAllComments);
+// app.get('/comments', CommentController.getAllComments);
 
-app.get('/', (req, res) => {
-  res.send('Удачно');
+app.get('/comments', (req, res) => {
+  res.json({
+    message: 'Удачно',
+  });
 });
 
 //Запускаем наш сервер на порте 4444 и в случае ошибки запуск выводим информацию в консоль
