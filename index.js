@@ -1,10 +1,8 @@
-import express from 'express';
-import multer from 'multer';
-
-import cors from 'cors';
-import mongoose from 'mongoose';
-
-import { CommentController } from './controllers/index.js';
+const express = require('express');
+const multer = require('multer');
+const cors = require('cors');
+const mongoose = require('mongoose');
+const { CommentController } = require('./controllers/index.js');
 
 //Подключаемся к нашей БД MongoDBs
 mongoose
@@ -42,10 +40,6 @@ app.post('/delete', CommentController.deleteFile);
 app.post('/comments', CommentController.createComment);
 //Получение всех комментариев
 app.get('/comments', CommentController.getAllComments);
-
-app.get('/test', (req, res) => {
-  res.send('Привет. Запрос пришел');
-});
 
 //Запускаем наш сервер на порте 4444 и в случае ошибки запуск выводим информацию в консоль
 app.listen(process.env.PORT || 4444, (err) => {
