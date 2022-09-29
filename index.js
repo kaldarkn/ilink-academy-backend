@@ -43,6 +43,10 @@ app.post('/comments', CommentController.createComment);
 //Получение всех комментариев
 app.get('/comments', CommentController.getAllComments);
 
+app.get('/test', (req, res) => {
+  res.send('Привет. Запрос пришел');
+});
+
 //Запускаем наш сервер на порте 4444 и в случае ошибки запуск выводим информацию в консоль
 app.listen(process.env.PORT || 4444, (err) => {
   if (err) {
