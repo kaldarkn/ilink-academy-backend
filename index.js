@@ -41,11 +41,7 @@ app.post('/delete', CommentController.deleteFile);
 //Создание комментария
 app.post('/comments', CommentController.createComment);
 //Получение всех комментариев
-// app.get('/comments', CommentController.getAllComments);
-
-app.get(`/comments`, (req, res) => {
-  res.send('Тут должны быть комментарии');
-});
+app.get('/comments', CommentController.getAllComments);
 
 //Запускаем наш сервер на порте 4444 и в случае ошибки запуск выводим информацию в консоль
 app.listen(process.env.PORT || 4444, (err) => {
