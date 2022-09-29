@@ -41,30 +41,7 @@ app.post('/delete', CommentController.deleteFile);
 //Создание комментария
 app.post('/comments', CommentController.createComment);
 //Получение всех комментариев
-// app.get('/comments', CommentController.getAllComments);
-
-app.get('/comments', (req, res) => {
-  res.json({
-    _id: {
-      $oid: '63342baa27fe9b61a488a48b',
-    },
-    name: 'Илья Анташкевич',
-    comment:
-      'Год назад попытал счастье, откликнулся на вакансию, прошел собес и попал в компанию. Долго переживал что будет тяжело влиться, но тут прям классные ребята работают, все на одной волне. Всегда готовы помочь с любым вопросом. Для эффективной работы здесь нужно хорошо знать иностранные языки.',
-    photo: 'http://192.168.0.102:4444/uploads/author4.png',
-    createdAt: {
-      $date: {
-        $numberLong: '1664363434076',
-      },
-    },
-    updatedAt: {
-      $date: {
-        $numberLong: '1664363434076',
-      },
-    },
-    __v: 0,
-  });
-});
+app.get('/comments', CommentController.getAllComments);
 
 //Запускаем наш сервер на порте 4444 и в случае ошибки запуск выводим информацию в консоль
 app.listen(process.env.PORT || 4444, (err) => {
