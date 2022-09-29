@@ -8,9 +8,7 @@ import { CommentController } from './controllers/index.js';
 
 //Подключаемся к нашей БД MongoDBs
 mongoose
-  .connect(
-    'mongodb+srv://admin:wwwwww@cluster0.kawdza6.mongodb.net/ilink?retryWrites=true&w=majority',
-  )
+  .connect(process.env.MONGODB_URI)
   .then(() => console.log('DB ok'))
   .catch((err) => console.log('DB error', err));
 
@@ -46,7 +44,7 @@ app.post('/comments', CommentController.createComment);
 app.get('/comments', CommentController.getAllComments);
 
 //Запускаем наш сервер на порте 4444 и в случае ошибки запуск выводим информацию в консоль
-app.listen(4444, (err) => {
+app.listen(process.env.PORT || 4444, (err) => {
   if (err) {
     return console.log(err);
   }
